@@ -14,7 +14,7 @@ def multiply(num1, num2):
 
 
 # print(multiply.__doc__)
-help(multiply)
+# help(multiply)
 
 
 # Google style
@@ -31,4 +31,4 @@ def dividend(num1, num2):
     return num1 / num2
 
 
-dividend()
+dividend(1, 2)
