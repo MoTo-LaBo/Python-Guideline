@@ -3,7 +3,7 @@
 # Python で開発する上で必ずと言って良いほど出てくるので確実に覚える
 
 def say_name(name):
-    print(f"I 'm {name}")
+    print(f"I'm {name}")
 
 
 say_name("Jiro")
@@ -34,3 +34,5 @@ def say_name_origin(name, origin):
 # say_name = greeting(say_name)
 say_name("Jiro")
 say_name_origin("Taro", "Tokyo")
+
+
