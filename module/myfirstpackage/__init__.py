@@ -5,6 +5,7 @@
 # 名前空間 package (python 3.3以降)
 # __init__.py がない package
 # 異なるパスに存在する同名の package を共通のものとしてまとめる事が可能
+# 記述は楽になるが、import 時に時間がかかってしまう
 # 特に理由がなければ __init__.py を作って通常の package とすること
 
 
@@ -14,5 +15,4 @@
 # __init__.py に import文を書くことで module名をスキップして、package. のあとに関数名やクラス名に access できる
 # __init__.py に __all__ を定義する事で、その package が import* で import された際に import させる関数やクラスを定義する事ができる
 # __init__.py に関しては、import * はよく使われる！！　__init__.py に関しては問題はない
-
 from myfirstpackage.subdir.module2 import *

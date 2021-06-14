@@ -1,8 +1,8 @@
 from .module2 import *
-__all__ = ['myfunc2']
+__all__ = ['myfunc', 'myfunc2']
 
-# Relative import: 相対インポート
-# from.<package/module>import xxx
+# Relative impor : 相対インポート
+#  from .<package/module> import xxx
 # 「.」: カレントディレクトリ
 # 「..」: 親ディレクトリ
-# relative imoprt の場合は、import <> の形ではなくて、from <> import <>の形をとる
+#  relative import の場合は、import<> の形ではなく、from<>import<>の形をとる
