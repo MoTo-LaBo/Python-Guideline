@@ -19,5 +19,12 @@ object が共通で持つ変数や関数を定義する
 例）
 - 右のペダルを踏めば前に進む = アクセル
 - 左のペダルを踏めば止まる = ブレーキ
-## class -> から作られモノを instance (インスタンス)
+### class -> から作られモノを instance (インスタンス)
 
+## static method (スタティックメソッド)
+- インスタンスに紐づかないメソッド
+- @staticmethod デコレーターを使用する
+- 主に class 内で便利関数のように使用する
+- 引数に self を取らない (インスタンスの情報は使わない)
+- class からアクセスして call する (< Class >.< staticmethod( )>)
+- class の情報を使う場合は、classmethod を使用する
