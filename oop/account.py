@@ -82,15 +82,19 @@
 
 
 # After correction
+import time
 class Acconunt(object):
 
     count = 0
+    transaction = {}
 
     def __init__(self, balance, name):
         self.balance = balance
         self.name = name
         self.acconunt_number = Acconunt.count
         self.show_balance()
+        self.transaction_history = []
+        # Acconunt.local_time()
         Acconunt.count += 1
 
     def withdraw(self, price):
@@ -100,23 +104,46 @@ class Acconunt(object):
             self.balance -= price
             print(f":引き落とし額{price}円")
             self.show_balance()
+            self.add_transatcion(-price)
+            # Acconunt.local_time()
 
     def deposit(self, price):
         self.balance += price
         print(f":入金額は{price}円です")
         self.show_balance()
+        self.add_transatcion(price)
+        # Acconunt.local_time()
 
     def show_balance(self):
         print(f"{self.name}さんの口座番号は[{self.acconunt_number}] :残高は{self.balance}円です")
 
+    def add_transatcion(self, price):
+        transaction = {
+            'withdraw/deposit': price,
+            'new_balance': self.balance,
+            'time': Acconunt.get_time_str()
+        }
+        self.transaction_history.append(transaction)
+
+    @staticmethod
+    def get_time_str():
+        current_time = time.localtime()
+        return "{0.tm_year}年{0.tm_mon}月{0.tm_mday}日{0.tm_hour}時{0.tm_min}分".format(current_time)
+    # def local_time():
+    #     locatime = time.ctime()
+    #     print(f"{locatime}")
+
+    def show_transaction_history(self):
+        for transaction in self.transaction_history:
+            transaction_str_list = []
+            for k, v in transaction.items():
+                transaction_str_list.append(f"{k}: {v}")
+            print(", ".join(transaction_str_list))
+
 
 john = Acconunt(1000, 'john')
 john.withdraw(500)
+john.deposit(1000)
+print(john.transaction_history)
+john.show_transaction_history()
 
-taro = Acconunt(3000, 'taro')
-taro.withdraw(1700)
-taro.withdraw(2000)
-
-emma = Acconunt(2000, 'emma')
-emma.deposit(3000)
-emma.withdraw(3000)
