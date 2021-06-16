@@ -28,3 +28,12 @@ object が共通で持つ変数や関数を定義する
 - 引数に self を取らない (インスタンスの情報は使わない)
 - class からアクセスして call する (< Class >.< staticmethod( )>)
 - class の情報を使う場合は、classmethod を使用する
+
+## class method(クラスメソッド)
+- インスタンスに紐づかない
+- @classmethod デコレーターを使用する
+- 主に class 内で便利関数のように使用する
+- 引数に cls を取って class の情報にアクセスできる
+- class からアクセスして call する (< class >.< classmethod>)
+- class の情報を使わない場合は staticmethod を使用する
+- classmethod 内でインスタンスを生成して返すことも可能
