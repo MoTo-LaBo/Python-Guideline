@@ -40,3 +40,12 @@ object が共通で持つ変数や関数を定義する
 - class からアクセスして call する (< class >.< classmethod>)
 - class の情報を使わない場合は staticmethod を使用する
 - classmethod 内でインスタンスを生成して返すことも可能
+## private 変数と名前修飾(name mangling : ネイムマングリング)
+- private 変数は、 class 外からアクセスできない変数
+- python には 「privateh 変数」はない
+- 変数名の接頭辞に「 _  」(アンダースコア)を付けることで nonpublic にする事ができる
+  - 慣習であって強制力はない
+- 「 __ 」(2つのアンダースコア)を付ける事で名前修飾する
+  - 名前修飾された変数名は＿< Class >_＿< attribute >のような形になる
+  - 例 : _ Account __balance
+  - 結果 private 変数のような役割を付けることができる
