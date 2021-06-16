@@ -165,7 +165,7 @@ class Account(object):
         if self.balance >= price:
             self.balance = self.balance - price
             self.show_balance()
-            self.add_transaction(-price)
+            self._add_transaction(-price)
 
         else:
             print(f"残高{self.balance}円です: 残高が足りません")
@@ -173,21 +173,21 @@ class Account(object):
     def deposit(self, price):
         self.balance += price
         self.show_balance()
-        self.add_transaction(price)
+        self._add_transaction(price)
 
     def show_balance(self):
         print(f"{self.name}さんの口座番号は[{self.account_number}] :残高は{self.balance}円です")
 
-    def add_transaction(self, price):
+    def _add_transaction(self, price):  # 外からアクセスされない関数については、最初に＿(アンダースコア)をつける
         transaction = {
             '入出金': price,
             '残高': self.balance,
-            'time': Account.get_time_str()
+            'time': Account._get_time_str()
         }
         self.transaction_history.append(transaction)
 
     @staticmethod
-    def get_time_str():
+    def _get_time_str():  # staticmetod や classmethod は、このように外から使用される事を想定していない method である
         current_time = time.localtime()
         return "{0.tm_year}年{0.tm_mon}月{0.tm_mday}日{0.tm_hour}時{0.tm_min}分".format(current_time)
 
