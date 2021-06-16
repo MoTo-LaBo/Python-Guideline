@@ -81,47 +81,108 @@
 # youraccount.deposit(8000)
 
 
+# answer
+# import time
+# class Account(object):
+#
+#     count = 0
+#     transaction = {}
+#
+#     def __init__(self, balance, name):
+#         self.balance = balance
+#         self.name = name
+#         self.account_number = Account.count
+#         self.show_balance()
+#         self.transaction_history = []
+#         # Account.local_time()
+#         Account.count += 1
+#
+#     def withdraw(self, price):
+#         if self.balance < price:
+#             print(f"引き落とし額{price}円 :残高が足りません :残高{self.balance}円です")
+#         else:
+#             self.balance -= price
+#             print(f":引き落とし額{price}円")
+#             self.show_balance()
+#             self.add_transaction(-price)
+#             # Account.local_time()
+#
+#     def deposit(self, price):
+#         self.balance += price
+#         print(f":入金額は{price}円です")
+#         self.show_balance()
+#         self.add_transaction(price)
+#         # Account.local_time()
+#
+#     def show_balance(self):
+#         print(f"{self.name}さんの口座番号は[{self.account_number}] :残高は{self.balance}円です")
+#
+#     def add_transaction(self, price):
+#         transaction = {
+#             'withdraw/deposit': price,
+#             'new_balance': self.balance,
+#             'time': Account.get_time_str()
+#         }
+#         self.transaction_history.append(transaction)
+#
+#     @staticmethod
+#     def get_time_str():
+#         current_time = time.localtime()
+#         return "{0.tm_year}年{0.tm_mon}月{0.tm_mday}日{0.tm_hour}時{0.tm_min}分".format(current_time)
+#     # def local_time():
+#     #     localtime = time.ctime()
+#     #     print(f"{localtime}")
+#
+#     def show_transaction_history(self):
+#         for transaction in self.transaction_history:
+#             transaction_str_list = []
+#             for k, v in transaction.items():
+#                 transaction_str_list.append(f"{k}: {v}")
+#             print(", ".join(transaction_str_list))
+#
+#
+# john = Account(1000, 'john')
+# john.withdraw(500)
+# john.deposit(1000)
+# print(john.transaction_history)
+# john.show_transaction_history()
+
 # After correction
 import time
-class Acconunt(object):
+class Account(object):
 
     count = 0
-    transaction = {}
 
     def __init__(self, balance, name):
-        self.balance = balance
         self.name = name
-        self.acconunt_number = Acconunt.count
+        self.balance = balance
+        self.account_number = Account.count
         self.show_balance()
         self.transaction_history = []
-        # Acconunt.local_time()
-        Acconunt.count += 1
+        Account.count += 1
 
     def withdraw(self, price):
-        if self.balance < price:
-            print(f"引き落とし額{price}円 :残高が足りません :残高{self.balance}円です")
-        else:
-            self.balance -= price
-            print(f":引き落とし額{price}円")
+        if self.balance >= price:
+            self.balance = self.balance - price
             self.show_balance()
-            self.add_transatcion(-price)
-            # Acconunt.local_time()
+            self.add_transaction(-price)
+
+        else:
+            print(f"残高{self.balance}円です: 残高が足りません")
 
     def deposit(self, price):
         self.balance += price
-        print(f":入金額は{price}円です")
         self.show_balance()
-        self.add_transatcion(price)
-        # Acconunt.local_time()
+        self.add_transaction(price)
 
     def show_balance(self):
-        print(f"{self.name}さんの口座番号は[{self.acconunt_number}] :残高は{self.balance}円です")
+        print(f"{self.name}さんの口座番号は[{self.account_number}] :残高は{self.balance}円です")
 
-    def add_transatcion(self, price):
+    def add_transaction(self, price):
         transaction = {
-            'withdraw/deposit': price,
-            'new_balance': self.balance,
-            'time': Acconunt.get_time_str()
+            '入出金': price,
+            '残高': self.balance,
+            'time': Account.get_time_str()
         }
         self.transaction_history.append(transaction)
 
@@ -129,21 +190,18 @@ class Acconunt(object):
     def get_time_str():
         current_time = time.localtime()
         return "{0.tm_year}年{0.tm_mon}月{0.tm_mday}日{0.tm_hour}時{0.tm_min}分".format(current_time)
-    # def local_time():
-    #     locatime = time.ctime()
-    #     print(f"{locatime}")
 
-    def show_transaction_history(self):
-        for transaction in self.transaction_history:
-            transaction_str_list = []
-            for k, v in transaction.items():
-                transaction_str_list.append(f"{k}: {v}")
-            print(", ".join(transaction_str_list))
+    def show_transaction(self):
+        for transation in self.transaction_history:
+            # transation_str = "" immutable メモリを無駄に使用するよくない記述
+            transation_str_list = []
+            for k, v in transation.items():
+                transation_str_list.append(f"{k}: {v}")
+            print("| ".join(transation_str_list))
 
 
-john = Acconunt(1000, 'john')
+john = Account(1000, 'john')
 john.withdraw(500)
 john.deposit(1000)
 print(john.transaction_history)
-john.show_transaction_history()
-
+john.show_transaction()
