@@ -1,5 +1,20 @@
-class Duck:
+class Duck: # docstring は必ず書きましょう！！！　見た時にわかるようにする。英語で記述する事
+    """
+    This a class for Duck
+
+    Attributes:
+        name (str): the name of duck
+
+    Method:
+        walk: print ***
+        quack: print ***
+        fly: print ***
+    """
     def __init__(self, name):
+        """
+        The constructor for Duck clask
+        :param name: the name of the duck
+        """
         self.name = name
 
     def walk(self):
@@ -33,6 +48,7 @@ def walk_and_quack(duck):
 
 
 if __name__ == "__main__":
+    print(help(Duck))
     donald = Duck("Donald")
     scrooge = Duck("Scrooge")
     daisy = Duck("Daisy")
