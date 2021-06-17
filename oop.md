@@ -66,3 +66,9 @@ object が共通で持つ変数や関数を定義する
 - Horse is an Animal
 - Friesian is an Horse
   - programing 上どんな class でも継承はできるが、is a の関係になっていないものは作成しない
+
+## オーバーライド(oberriding)
+- superclass の method を、subclass 用に method を書き換える/ 追加する
+- オーバーロード（overloading）とは別物なので注意する(pythonにオーバーロードは無い)
+  - オーバーロードは同じ関数名なんだけど引数が違うというもの。他のプログラミング言語にはその仕組みはある
+-
