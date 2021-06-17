@@ -34,7 +34,14 @@ class Truck(Car):
     def __init__(self, model_name, mileage, manufacturer, max_loading):
         super().__init__(model_name, mileage, manufacturer)
         self._maximum = max_loading
-        self._loadings = 0  # 最初は何も積載していない前提
+        self._loadings = 0  # 最初は何も積載していない前提1
+
+    def gas(self):  # oberriding は superclass の method名を定義してしまえばOK。オーバーライドになる
+        if self._loadings > self._maximum:
+            print("重量オーバーなので走行できません")
+            print(f"最低でも{self._loadings - self._maximum}tの荷物を降ろしてください")
+        else:
+            super(Truck, self).gas()
 
     def load(self, weight):
         if weight > 0:
@@ -64,5 +71,11 @@ if __name__ == "__main__":
     elf.load(5)
     elf.load(-3)
     elf.load(10)
+    elf.gas()
     elf.load(-30)
 # _ (アンダースコア)忘れ。nonpublic なインスタンス変数である事を明示する
+
+# point は、インスタンスの method を呼んだ時に、そのインスタンスにその method が定義されていなければ
+# superclass から method が呼ばれる
+# もし、subclass で superclass の method を呼びたければ、super().method名（）を付ける
+# 考え方としては、__init__ と同じ
