@@ -40,7 +40,7 @@ object が共通で持つ変数や関数を定義する
 - class からアクセスして call する (< class >.< classmethod>)
 - class の情報を使わない場合は staticmethod を使用する
 - classmethod 内でインスタンスを生成して返すことも可能
-## private 変数と名前修飾(name mangling : ネイムマングリング)
+ private 変数と名前修飾(name mangling : ネイムマングリング)
 - private 変数は、 class 外からアクセスできない変数
 - python には 「privateh 変数」はない
 - 変数名の接頭辞に「 _  」(アンダースコア)を付けることで nonpublic にする事ができる
@@ -49,3 +49,20 @@ object が共通で持つ変数や関数を定義する
   - 名前修飾された変数名は＿< Class >_＿< attribute >のような形になる
   - 例 : _ Account __balance
   - 結果 private 変数のような役割を付けることができる
+# 継承(inheritance)
+- オブジェクト指向の要
+  - 継承がなければオブジェクト指向とは言わない
+- 他の class をベースの class として継承して、別の class を作ることができる
+- super class(親クラス、規定クラス)の機能を引き継ぎ、sub class (子クラス、派生クラス)として拡張することができる
+  - 例）車クラスをベースにトラッククラスを作成する
+  - 車という共通の部分はそのまま継承させる
+### 一番上にあるのは object それを継承して次のclass が作成される
+- object　継承したものが↓
+  - Animal　継承したものが↓
+    - Horse(馬)　継承したものが↓
+      - Friesian / Thoroughbred / mustang　（馬の種類）
+### 継承は is a の関係になっている
+#### 「 is-aの関係は、オブジェクトの一般化や特殊化を示し、”A is-a B”は”AはB（の一種）である”ことを示す。 」
+- Horse is an Animal
+- Friesian is an Horse
+  - programing 上どんな class でも継承はできるが、is a の関係になっていないものは作成しない
