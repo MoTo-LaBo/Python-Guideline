@@ -8,7 +8,7 @@
     - code -> print( ) で実行
   - 自動で実行する test
     - assert a + b == 2, "a + b is equal to 2!" (assert code) python のもっとも基本的な形
-  - 他の module や機能との結合 test
+  - 他の module や機との結合 test
   - ユーザー目線での動作 test
   - etc..
 - 単体 test (Uni Test)と結合 test (Integeration Test)
@@ -24,3 +24,8 @@
 - 誤ったデータを入れたらきちんとエラーを返すかをテストする
 - 考えられる例外は無数に出てくるので、ある程度絞ってテストをする
 - with ステートメントを使ってテストする
+### pytest
+- python のテストフレームワークで、多くのプロジェクトが採用している
+- python 標準の assert を使って簡潔にかける
+### install
+    pip install pytest
