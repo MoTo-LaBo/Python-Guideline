@@ -15,9 +15,12 @@ class TestMyMethod(unittest.TestCase):
         num1 = 2
         num2 = 3
         # assert times(num1, num2) == 6, "This should be 6"
-        self.assertEqual(times(num1,num2), 6)
+        self.assertEqual(times(num1, num2), 6)
+        # context manager
+        with self.assertRaises(TypeError):
+            power("3", "2")
 
-    # if __name__ == "__main__":
-    #     # test_power()
-    #     # test_times()
-    #     unittest.main()
+    if __name__ == "__main__":
+        # test_power()
+        # test_times()
+        unittest.main()
