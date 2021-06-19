@@ -29,3 +29,14 @@
 - python 標準の assert を使って簡潔にかける
 ### install
     pip install pytest
+### test command
+    pytest tests/test_power_pytest.py -v
+### test command
+    pytest tests  -v
+- directory 内の test という名前のつくfile全てを test する
+### test カバレッチ
+- test が通ったから全てが上手くいっているとは限らない
+  - test がどれくらいカバーできているのかを確認する必要がある
+  - どれだけの script が 記述した test  code でカバーされているか確認することを test カバレッチという
+### pytest カバレッチ を見るには下記を install する
+    pip install pytest-cov
