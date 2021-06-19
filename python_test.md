@@ -50,6 +50,9 @@
     pytest tests/test_power_pytest.py -v --cov=power --cov-report html
 ### カバレッチを xml 形式で保存
     pytest tests/test_power_pytest.py -v --cov=power --cov-report xml
+### 上書きではなく、今ある情報に追加 --cov-append
+    pytest tests/test_power_pytest.py -v --cov=power --cov-report xml --cov-append
+ > 実際の開発では、coverage.xlm を作成して上記のように何箇所づつに分けてtest しては append (追加)しての繰り返しで file を更新していく。 test script を増やしていく
 - 何の為に html data で保存をするのか？
   - 構造化した dataで持つ事によって他の tool で表示する事ができる
   - 構造化した data は汎用性が高く、円グラフ、表 etc...
