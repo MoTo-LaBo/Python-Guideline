@@ -40,3 +40,5 @@
   - どれだけの script が 記述した test  code でカバーされているか確認することを test カバレッチという
 ### pytest カバレッチ を見るには下記を install する
     pip install pytest-cov
+### pytest カバレッチ実行
+    pytest tests/test_power_pytest.py -v --cov=<file名>
