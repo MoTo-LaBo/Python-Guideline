@@ -42,3 +42,15 @@
     pip install pytest-cov
 ### pytest カバレッチ実行
     pytest tests/test_power_pytest.py -v --cov=<file名>
+### --cov-report term-missing をつけるとどこが実行されていないか行が表示される
+    pytest tests/test_power_pytest.py -v --cov=power --cov-report term-missing
+- 全てが cover（100%） されているからといって、 しっかりとした assert がされているとは限らないので、しっかり test ケースを作った上で実行する事
+- 意味のないtest を実行しただけでも cover 率は 100% になるので注意！！
+### カバレッチを html 形式で保存
+    pytest tests/test_power_pytest.py -v --cov=power --cov-report html
+### カバレッチを xml 形式で保存
+    pytest tests/test_power_pytest.py -v --cov=power --cov-report xml
+- 何の為に html data で保存をするのか？
+  - 構造化した dataで持つ事によって他の tool で表示する事ができる
+  - 構造化した data は汎用性が高く、円グラフ、表 etc...
+  - 視認性がよくとても分かりやすい data に変換できる

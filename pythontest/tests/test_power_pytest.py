@@ -1,6 +1,6 @@
 import pytest
 
-from power import power, times
+from power import power, times, divide
 
 
 def test_power():
@@ -17,3 +17,13 @@ def test_times():
     assert times(num1, num2) == 6
 
 
+def test_divide():
+    num1 = 4
+    num2 = 2
+    assert divide(num1, num2) == 2
+
+
+def test_divide_by_zero():
+    num1 = 4
+    num2 = 0
+    assert divide(num1, num2) is None
