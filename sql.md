@@ -10,7 +10,7 @@
 - sqlite3 のコマンドは「 . 」(ドット)から始まる事に注意
 ### Table (テーブル)
 - テーブル（表）の形で data を保管する
-#### Table 作成 command
+### Table 作成 command
     CREATE TABLE < テーブル名 >(< カラム名>< data型>,< カラム名>< data型>,< カラム名>< data型>,...);
 - NULL : 空、何もない data が入っていない
 - INTEGER : 整数
@@ -27,3 +27,36 @@
     .tables
 #### .schema : table の構造（schema）を表示する
     .schema
+### INSERT でレコード作成
+    INSERT INTO < テーブル名 >(< カラム名 >,< カラム名 >) VALUES(< 値 >< 値 >,...)
+- 1つの レコードは、１user を意味する
+#### 例
+    sqlite> INSERT INTO User (UserId, Name, Email, Age)
+     ...> VALUES (1, 'John', 'john@gmail.com', 30);
+- (UserId, Name, Email, Age) は省略しても良い
+### SELECT でレコードを表示する
+    SELECT < カラム名 >,< カラム名 >,...FROM < テーブル名 >;
+- 最もよく使うSQL 文
+- 全てのカラム情報を取得してくるなら SELECT * FROM <テーブル名>; でOK
+- .headers on でヘッダーを表示できる
+- SELECT 文にはレコード抽出の条件を指定したり、並びを替えをしたり多くの付属機能がある
+#### 例
+    SELECT * FROM User;
+- User テーブル全てのレコードを表示する
+### UPDATE と DELETE
+    UPDATE <テーブル名> SET <カラム名>=<値> WHERE <条件>;
+- 特定のレコードの特定のカラムの値を更新することができる
+- WHERE を使用して条件を指定する
+#### 例
+    sqlite> UPDATE User SET Email="newjohn@gmail.com"
+     ...> WHERE Name="John";
+### DELETE
+    DELETE FROM <テーブル名> WHERE <条件>;
+- 特定のレコードを指定したテーブルから削除する
+- WHERE を指定しないとテーブルごと削除するので注意！！
+#### 例
+    DELETE FROM User WHERE Name="John";
+### .dump で今までのSQL出力する
+- .dump コマンドで今までのSQLを全て出力することができる
+- .dump コマンドで出力した時にSQL を実行すれば、今の Database の状態を作ることができる
+-
