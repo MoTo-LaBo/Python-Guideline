@@ -59,4 +59,8 @@
 ### .dump で今までのSQL出力する
 - .dump コマンドで今までのSQLを全て出力することができる
 - .dump コマンドで出力した時にSQL を実行すれば、今の Database の状態を作ることができる
--
+## Chinook data set
+- 大きなデータセットを使って様々なSELECT文を練習する
+- Open Data
+> https://github.com/lerocha/chinook-database
+- Chinook_Sqlite.sql ファイルを使ってデータベースを作成
