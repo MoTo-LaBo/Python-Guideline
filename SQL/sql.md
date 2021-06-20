@@ -64,3 +64,20 @@
 - Open Data
 > https://github.com/lerocha/chinook-database
 - Chinook_Sqlite.sql ファイルを使ってデータベースを作成
+### ORDER BY でソートして表示する
+- SELECT 時にソートして表示する
+- SELECT 文に続けてかく
+- WHERE の後にかく
+- デフォルトでは昇順、DESC を付けると降順になる
+#### 例
+    SELECT * FROM Employee ORDER BY LastName;
+#### 例
+    sqlite> SELECT * FROM Employee
+    ...> WHERE Title="Sales Support Agent"
+    ...> ORDER BY lastName;
+### LIKE で曖昧検索する
+- WHERE 句に使うことで曖昧検索ができる
+- ％は０文字以上の任意の文字、＿ が任意の一文字
+- Case insensitive での検索となる("="での検索は Case sensitive)
+  - 大文字、小文字を区別しない
+#### 例
