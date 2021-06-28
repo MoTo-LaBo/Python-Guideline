@@ -16,9 +16,11 @@
 
 # hard codeing (ハードコーディング)
 # 変数を使用しないで、codeing する事。良いとはされていない
-
+hello = 'hello'
+world = 'world'
 
 # format 関数 : (文字列に使用可能)
+
 print("{} {}".format(hello, world))
 
 name ="John"
